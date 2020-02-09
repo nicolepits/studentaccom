@@ -8,9 +8,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;
 
-
+import gr.hua.dit.entity.Application;
 import gr.hua.dit.entity.Student;
 
 @Repository
@@ -20,7 +21,6 @@ public class StudentDAOimpl implements StudentDAO {
     private SessionFactory sessionFactory;
 	
 	@Override
-	@Transactional
 	public List<Student> getStudents() {
 		// get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
@@ -37,28 +37,25 @@ public class StudentDAOimpl implements StudentDAO {
 	}
 	
 	@Override
-	@Transactional
 	public void saveStudent(Student student) {
 		 // get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
-        
-        // save the employee
+       
+        // save the student
         currentSession.save(student);
 	}
 
 	@Override
-	@Transactional
 	public Student getStudent(int id) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-
+       
 		// get and return Student
 		Student student = currentSession.get(Student.class, id);
 		return student;
 	}
 
 	@Override
-	@Transactional
 	public void deleteStudent(int id) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -69,5 +66,14 @@ public class StudentDAOimpl implements StudentDAO {
 		// delete Student
 		currentSession.delete(student);
 
+	}
+	
+	@Override
+	public void updateStudent(Student student) {
+		// get current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		// update Student
+		currentSession.update(student);
 	}
 }

@@ -12,7 +12,6 @@ import javax.persistence.Table;
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "username")
 	private String username;
 	
@@ -57,5 +56,9 @@ public class User {
 		this.enabled = enabled;
 	}
 	
-	
+	@Override
+	   public String toString() {
+	           return "Users [username=" + username + ", password=" + password +", enabled ="+ enabled +"]";
+	   }	
+		
 }

@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import gr.hua.dit.entity.Employee;
-import gr.hua.dit.entity.Student;
+
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -20,7 +20,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     private SessionFactory sessionFactory;
 	
 	@Override
-	@Transactional
 	public List<Employee> getEmployees() {
 		// get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
@@ -37,7 +36,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	@Transactional
 	public void saveEmployee(Employee employee) {
 		// get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
@@ -47,7 +45,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 	
 	@Override
-	@Transactional
 	public Employee getEmployee(int id) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -58,7 +55,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	@Transactional
 	public void deleteEmployee(int id) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();

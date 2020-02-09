@@ -1,14 +1,17 @@
 package gr.hua.dit.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "student")
+@Table(name = "employee")
 public class Employee {
 	
 		@Id
@@ -19,7 +22,9 @@ public class Employee {
 		@Column(name="name")
 		public String name;
 		
-		@Column(name = "department_id")
+		@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+	              CascadeType.DETACH, CascadeType.REFRESH})
+		@JoinColumn(name="department_id")
 	    public Department department;
 	   
 		@Column(name = "type")

@@ -17,46 +17,41 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
-public class AppSecurityConfig  extends WebSecurityConfigurerAdapter{
-	
-	 @Autowired
-	 DataSource dataSource;
 
-	
-	@Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    
-             auth.jdbcAuthentication().dataSource(dataSource)
-            .passwordEncoder(passwordEncoder())
-               .usersByUsernameQuery(
-                "select username,password, enabled from user where username=?")
-               .authoritiesByUsernameQuery(
-                "select username, authority from authorities where username=?");
+public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    }
-	
+	@Autowired
+	DataSource dataSource;
+
 	@Override
-    protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests()
-            .anyRequest().authenticated()
-            .and()
-            .formLogin().loginPage("/login")
-            .loginProcessingUrl("/authUser")
-            .permitAll()
-            .and()
-            .logout().permitAll();
-    }
-	
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder())
+				.usersByUsernameQuery("select username,password, enabled from user where username=?")
+				.authoritiesByUsernameQuery("select username, authority from authorities where username=?");
+
+	}
+
 	@Override
-    public void configure(WebSecurity web) throws Exception {
-             web.ignoring()
-            .antMatchers("/resources/**");
-             web.ignoring().antMatchers("/api/**");
-    }
-	
-	 @Bean
-	 public PasswordEncoder passwordEncoder() {
-	         PasswordEncoder encoder = new BCryptPasswordEncoder();
-	         return encoder;
-	 }
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers("/employee").hasRole("EMPLOYEE").antMatchers("/student").hasRole("STUDENT")
+				.antMatchers("/admin").hasRole("ADMIN").anyRequest().authenticated().and().formLogin()
+				.loginPage("/login").loginProcessingUrl("/authUser").defaultSuccessUrl("/homePage", true)
+				.permitAll().and().logout().permitAll().and().exceptionHandling().accessDeniedPage("/403");
+
+	}
+
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/resources/**");
+
+		web.ignoring().antMatchers("/api/**");
+
+	}
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		PasswordEncoder encoder = new BCryptPasswordEncoder();
+		return encoder;
+	}
 }

@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import gr.hua.dit.dao.EmployeeDAO;
 import gr.hua.dit.entity.Employee;
+import gr.hua.dit.entity.Student;
+import gr.hua.dit.service.StudentService;
 
 @Controller
 @RequestMapping("/employee")
@@ -20,6 +22,9 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeDAO employeeDAO;
+	
+	@Autowired
+	private StudentService studentService;
 	
 	@RequestMapping("/list")
 	public String listEmployee(Model model) {
@@ -39,11 +44,19 @@ public class EmployeeController {
 	           return "employee-form";
 	   }
 	
-	@PostMapping("/saveEmployee")
-	   public String saveEmployee(@ModelAttribute("employee") Employee employee) {
-	           // save the student using the service
-	           employeeDAO.saveEmployee(employee);
+	@GetMapping("/showActivation")
+	   public String showActivation() {
+		
+	           return "student-activate";
 	           
-	           return "redirect:/employee/list";
+	   }
+	
+	@PostMapping("/activateStudent")
+	   public String activateStudent(@RequestParam("id") int id) {
+	       
+			Student s = studentService.getStudent(id);
+			s.setActivation("yes");
+	        studentService.updateStudent(s);
+	           return "redirect:/homePage";
 	   }
 }
