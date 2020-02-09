@@ -1,0 +1,26 @@
+body { 
+    background-color: rgb(150, 114, 177);
+}
+.block {
+	box-shadow: 0px 10px 14px -7px #8059d3;
+	background:linear-gradient(to bottom, #796ae6 5%, #9652e9 100%);
+	background-color:#8662e1;
+	border-radius:41px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:21px;
+	font-weight:bold;
+	padding:16px 76px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #9961df;
+}
+.block:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#945de7;
+}
+.block:active {
+	position:relative;
+	top:1px;
+}
