@@ -15,7 +15,7 @@ Steps:<br>
   -For employee (supervisor): Activate a student<br>
   -For Admin: 1)Edit Users (Add,Delete,Update info)<br>
           2)Edit roles (Update Roles,Add new Roles,Delete Roles)<br>
-          3)Edit Services (Add new service, Update Service Role, Delete Service<br>
+          3)Edit Services (Add new service, Update Service Role, Delete Service)<br>
 3.Log out.<br>
 
 **FOR THE EXTERNAL WEBSITE**
