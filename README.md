@@ -4,6 +4,7 @@
 This app is running on a Tomcat Server.In case there errors, the server might need to be restarted.
 Java Spring MVC & Hibernate required.
 
+**INTERNAL WEBSITE**
 Steps:<br>
 1.Log in using your username and password.<br>
   You'll be redirected to a new page with a few selections.<br>
@@ -12,9 +13,17 @@ Steps:<br>
 		 2)Change communication info<br>
 		 3)Show evaluation results.<br>
   -For employee (supervisor): Activate a student<br>
-  -Admin: 1)Edit Users (Add,Delete,Update info)<br>
-          2)Edit roles (Update Roles,Add new Roles)<br>
-          3)Add new Student<br>
-          4)Add new Employee<br>
+  -For Admin: 1)Edit Users (Add,Delete,Update info)<br>
+          2)Edit roles (Update Roles,Add new Roles,Delete Roles)<br>
+          3)Edit Services (Add new service, Update Service Role, Delete Service<br>
 3.Log out.<br>
-This app is currently still in process so many features do not work yet.
+
+**FOR THE EXTERNAL WEBSITE**
+This is only for students'use.
+There are 3 options:
+1.Apply for accomodation<br>
+  -Students fills in the form including the application id which has been retrieved since the student's admission at the university.
+2.Change communication info
+  -Student fills in ID, new email and new telephone number.
+3.View your rank and result
+  -Student inserts the application ID and then the rank is being showed on the screen along with a result message (Accepted or not).
