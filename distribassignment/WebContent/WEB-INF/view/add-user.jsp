@@ -9,11 +9,11 @@
 </head>
 <body>
 <h2><u>Welcome!</u><br></h2>
-       <h3> If you want to add a new User please fill the fields below!</u></h3>
-        <br><br><br>
+       <h3> Please fill the fields below!</u></h3>
+        <br><br>
 
 
-        <form:form method="post" action="/distributed/admin/saveUser"
+        <form:form method="post" action="/distribassignment/admin/saveUser"
 		modelAttribute="user">
                 <label for="username"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="username" required><br>

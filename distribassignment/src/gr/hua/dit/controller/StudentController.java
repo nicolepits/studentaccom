@@ -1,6 +1,7 @@
 package gr.hua.dit.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -138,6 +139,8 @@ public class StudentController {
 			}
 			
 			this.rankList.setRankList(ranks);
+			Collections.sort(ranks);
+			Collections.reverse(ranks);
 			Rank myRank = new Rank(); //Assemble user's rank object 
 			myRank.setPoints(app.getPoints());
 			myRank.setId(id);

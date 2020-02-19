@@ -1,6 +1,7 @@
 package gr.hua.dit.rest;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -69,7 +70,7 @@ public class StudentRestController {
     }
     
     @CrossOrigin(origins = "*")
-    @RequestMapping(value = "/change", method = RequestMethod.PUT, produces = { "application/json", "application/xml" })
+    @RequestMapping(value = "/change", method = RequestMethod.POST, produces = { "application/json", "application/xml" })
     public Student changeInfo(@RequestBody StudentChange params) {
     //(@RequestParam("id") int id,@RequestParam("email") String email,@RequestParam("phone_number") String phoneNumber) {
     		
@@ -82,8 +83,9 @@ public class StudentRestController {
 
     }
     
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/rank", method = RequestMethod.GET, produces = { "application/json", "application/xml" })
-    public int getRank(@RequestParam("id") int id) {
+    public AppResult getRank(@RequestParam("id") int id) {
     	
     	List<Application> apps = applicationService.getApplications();
     	
@@ -101,13 +103,24 @@ public class StudentRestController {
 		}
 		
 		this.rankList.setRankList(ranks);
+		Collections.sort(ranks);
+		Collections.reverse(ranks);
+		
 		Rank myRank = new Rank(); //Assemble user's rank object 
 		myRank.setPoints(app.getPoints());
 		myRank.setId(id);
 		
 		int index = this.rankList.getIndexOfRank(id);
 		
-        return index;
+		String myString;
+		if(index<=100) {
+			myString = "Accepted!";
+		} else {
+			myString = "Your application is declined. We're sorry!";
+		}
+		AppResult myResult = new AppResult(index,myString);
+		
+        return myResult;
         
     }
     

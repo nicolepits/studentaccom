@@ -1,5 +1,6 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-     pageEncoding="ISO-8859-1"%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,16 @@
 <title>Student Menu</title>
 </head>
 <body>
-<h1>What would you like to do?</h1>
-<a href="${pageContext.request.contextPath}/student/addApp">Apply for Accomodation</a> | <a href="${pageContext.request.contextPath}/student/changeInfo">Change my communication info</a> |<a href="${pageContext.request.contextPath}/student/viewRank">Check results</a>
-
+	<h1>What would you like to do?</h1>
+	<a href="${pageContext.request.contextPath}/student/addApp">Apply
+		for Accomodation</a> |
+	<a href="${pageContext.request.contextPath}/student/changeInfo">Change
+		my communication info</a> |
+	<a href="${pageContext.request.contextPath}/student/viewRank">Check
+		results</a>
+	<br>
+	<br>
+	<a href="${pageContext.request.contextPath}/homePage">Go back to
+		Homepage</a>
 </body>
 </html>

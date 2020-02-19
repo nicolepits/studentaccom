@@ -10,7 +10,7 @@
         <center>
             <h2><u>Application ID:</u></h2>
 			<form:form method="GET"
-		          action="/distributed/student/viewResultRank" modelAttribute="id">
+		          action="/distribassignment/student/viewResultRank" modelAttribute="id">
             <div class="container">
                 <label for="id"><b>ID</b></label>
                 <input type="text" placeholder="Enter ID" name="id" required>

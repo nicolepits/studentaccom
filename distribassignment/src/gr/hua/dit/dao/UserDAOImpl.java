@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import gr.hua.dit.entity.Student;
@@ -18,6 +19,9 @@ public class UserDAOImpl implements UserDAO {
 
 	@Autowired
     private SessionFactory sessionFactory;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Override
 	public List<User> getUsers() {
@@ -40,8 +44,12 @@ public class UserDAOImpl implements UserDAO {
 		 // get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
         
+        User user1 = new User();
+		user1.setUsername(user.getUsername());
+		user1.setEnabled(user.getEnabled());
+		user1.setPassword(passwordEncoder.encode(user.getPassword()));
         // save the user
-        currentSession.save(user);
+        currentSession.save(user1);
 	}
 
 	@Override
@@ -71,8 +79,11 @@ public class UserDAOImpl implements UserDAO {
 	public void updateUser(User user) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-
+		User user1 = new User();
+		user1.setUsername(user.getUsername());
+		user1.setEnabled(user.getEnabled());
+		user1.setPassword(passwordEncoder.encode(user.getPassword()));
 		// update User
-		currentSession.update(user);
+		currentSession.update(user1);
 	}	
 }

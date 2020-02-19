@@ -34,10 +34,10 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/employee").hasRole("EMPLOYEE").antMatchers("/student").hasRole("STUDENT")
-				.antMatchers("/admin").hasRole("ADMIN").anyRequest().authenticated().and().formLogin()
+		http.authorizeRequests().antMatchers("/employee/showActivation").hasRole("EMPLOYEE").antMatchers("/studentMenu").hasRole("STUDENT")
+				.antMatchers("/adminMenu").hasRole("ADMIN").anyRequest().authenticated().and().formLogin()
 				.loginPage("/login").loginProcessingUrl("/authUser").defaultSuccessUrl("/homePage", true)
-				.permitAll().and().logout().permitAll().and().exceptionHandling().accessDeniedPage("/403");
+				.permitAll().and().logout().permitAll();//.and().exceptionHandling().accessDeniedPage("/403");
 
 	}
 

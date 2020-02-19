@@ -13,7 +13,7 @@
         <br><br><br>
 
 
-        <form:form method="post" action="/distributed/employee/activateStudent">
+        <form:form method="post" action="/distribassignment/employee/activateStudent">
 
 
             <div class="container">
@@ -26,5 +26,8 @@
              </div>
 
         </form:form>
+        <br>
+        <br>
+        <a href="${pageContext.request.contextPath}/homePage">Go back to Homepage</a> 
 </body>
 </html>

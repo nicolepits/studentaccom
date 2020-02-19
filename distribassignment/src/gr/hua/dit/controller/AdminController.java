@@ -26,6 +26,7 @@ public class AdminController {
 	private ServiceService servService;
 	
 	
+	
 	@GetMapping("/manageUsers")
 	public String showManageUsers() {
 		return "manage-users-menu";

@@ -8,7 +8,7 @@
 <table>
 
 
-	<form:form method="post" action="/distributed/student/saveApp"
+	<form:form method="post" action="/distribassignment/student/saveApp"
 		modelAttribute="application">
 Enter your application ID: <input type="text" name="id"/>
 		<br>

@@ -3,6 +3,7 @@
 <head>
     <title>View Students Rank</title>
     <link rel="stylesheet" type="text/css" href="viewRank1.css">
+    
 </head>
 
 <body>
@@ -11,21 +12,25 @@
     	<br>
     	<br>
     	<h3>Enter your application ID</h3>
+    	
     	<form id="thisform">
-        ID: <input type="text" name="id"><br>   
-        <button type="submit" id="showBtn">Show</button> <br>
+    	
+        ID: <input type="number" name="id"><br><br>   
+            <button type="submit" id="showBtn">Show</button> <br>
+        	<script src="./myRank.js"></script>
     	</form>
         
-            <h3>Your rank is:</h3><br>
-            <h3>And your result is:</h3>
+            <h2>Your rank is:</h2>
+            <p id="id1"></p> 
+            <h2>And your result is:</h2>
+        	 <p id="accept"></p><br>
         
-        <p id="id1"></p> 
-        <p id="accept"></p>
+        <p id="alert"></p>
   
         <br>
         <br>
         <div></div>
-  >
+  
 
     
 </body>

@@ -13,7 +13,7 @@
 			<h1>Change you communication Info</h1>
 		
 		<form:form method="POST"
-		          action="/distributed/student/updateStudent" modelAttribute="student">
+		          action="/distribassignment/student/updateStudent" modelAttribute="student">
 			ID: <input type="text" name="id"><br>
 			New Email: <input type="text" name="email"><br> New
 			Phone number: <input type="text" name="phoneNumber"><br>

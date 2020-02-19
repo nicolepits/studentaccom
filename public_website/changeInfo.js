@@ -7,15 +7,17 @@ function changeStudent(event){
  	var id = document.getElementById("form").elements[0].value;
  	var email = document.getElementById("form").elements[1].value;
  	var phoneNumber = document.getElementById("form").elements[2].value;
- 	
+ 	console.log(id);
+ 	console.log(email);
+ 	console.log(phoneNumber);
 	const data = {
 			id : parseInt(id),
 			email : email,
-			phone_number : phoneNumber
+			phoneNumber : phoneNumber
 	};
 	
-	fetch('http://localhost:8083/distributed/api/student/change', {
-		method: 'PUT',
+	fetch('http://localhost:8083/distribassignment/api/student/change', {
+		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},

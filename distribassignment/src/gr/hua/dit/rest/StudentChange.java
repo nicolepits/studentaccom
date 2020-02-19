@@ -2,8 +2,8 @@ package gr.hua.dit.rest;
 
 public class StudentChange {
 
-	int id;
-	String email;
-	String phoneNumber;
+	public int id;
+	public String email;
+	public String phoneNumber;
 	
 }

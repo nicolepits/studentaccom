@@ -15,9 +15,3 @@ h3{
     text-transform: none;
 }
 
-div {
-    width: 300px;
-    border: 10px solid rgba(68, 0, 128, 0.794);
-    padding: 50px;
-    margin: 20px;
-  }

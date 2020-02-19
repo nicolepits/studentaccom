@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "rank")
-public class Rank {
+public class Rank implements Comparable<Rank>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,6 +44,13 @@ public class Rank {
 	public void setPoints(int points) {
 		this.points = points;
 	}
+
+	@Override
+	public int compareTo(Rank rank) {
+		return(this.points-rank.points);
+	}
+
+	
 	
 	
 }
